@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Wondx mobile</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Geist:wght@400;500&display=swap" rel="stylesheet">
@@ -1051,6 +1051,13 @@ a{color:inherit}
   .proto{left:auto;right:8px;bottom:calc(72px + env(safe-area-inset-bottom,0px))}
   .proto .box{width:calc(100vw - 16px);max-height:56vh}
 }
+/* M15 · Public Collections (11.x): the shelf's card, one per row at phone width (as the desktop page below 480) */
+.pcg{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+.pcg .coll{width:auto}
+.pc-end{display:flex;flex-direction:column;align-items:center;gap:8px;padding:48px 0 24px;text-align:center}
+.pc-end h2{margin:0;font:500 20px/24px var(--body)}
+.pc-end p{margin:0 0 8px;font:400 14px/20px var(--body);color:var(--text-secondary);text-wrap:balance}
+.pc-end h2:focus{outline:none}
 @media (prefers-reduced-motion:no-preference){.sheet.in{animation:sh .24s cubic-bezier(.2,.8,.2,1)}@keyframes sh{from{transform:translateY(24px);opacity:0}}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
@@ -1083,7 +1090,7 @@ a{color:inherit}
   var S = { session: 'in', screen: 'home', prev: 'home', sheet: false, theme: 'light', dot: true, feed: 'plain', filters: false, age: 'adult', creators: 'everyone', cw: 'warn', ai: true,
             panel: 'activity', showcase: false, tag: null, ptab: 'posts', pcat: 'All', lib: 'saved', plan: 'pro',
             ftab: 'creators', lbp: 'week', board: 'overall', vote: 'open', voteIdx: 0, dper: '30', dmet: 'impressions', dsort: 'impressions',
-            ptype: 'image', pview: 'visitor', cstate: 'default', q: '', recent: ['dark wallpaper', 'haruki.px', 'steam profile anime', '4k'], rq: 'dark wallpaper', rtab: 'all', cat: 'Wallpapers', ctype: 'all', ctag: null, sort: 'relevant', sortOpen: false, tagq: '4k dark', fres: 'any', fshow: 'any', fmotion: 'any', searchFrom: 'home', searchBack: 'home', tagBack: 'home', fromTab: 'home', utype: 'wallpaper', utitle: 'Night city', uai: false, ucw: false, uwm: true, pfpMode: 'both', steamConn: true, usheet: null, uswitchTo: null, uchanging: false, publishing: false, published: false, pubTitle: '', pubPts: 20, pubArt: 6, copied: false, uFrom: 'home', nfilter: 'all', nstate: 'default', nread: 'some', ninvite: 'open', nsheet: null, nFrom: 'home', aerr: 'none', showPw: false, codeFor: 'signup', wmode: 'signup', picks: ['Wallpapers', 'Steam Profiles'], setup: 'closed', authFrom: 'home', pslide: 0, psheet: null, full: false, postTab: 'home' };
+            ptype: 'image', pview: 'visitor', cstate: 'default', q: '', recent: ['dark wallpaper', 'haruki.px', 'steam profile anime', '4k'], rq: 'dark wallpaper', rtab: 'all', cat: 'Wallpapers', ctype: 'all', ctag: null, sort: 'relevant', sortOpen: false, tagq: '4k dark', fres: 'any', fshow: 'any', fmotion: 'any', searchFrom: 'home', searchBack: 'home', tagBack: 'home', fromTab: 'home', utype: 'wallpaper', utitle: 'Night city', uai: false, ucw: false, uwm: true, pfpMode: 'both', steamConn: true, csort: 'relevant', pcon: [], pccr: 'everyone', pcf: 'none', subs: { 'Phone setup': true }, pcFrom: 'home', usheet: null, uswitchTo: null, uchanging: false, publishing: false, published: false, pubTitle: '', pubPts: 20, pubArt: 6, copied: false, uFrom: 'home', nfilter: 'all', nstate: 'default', nread: 'some', ninvite: 'open', nsheet: null, nFrom: 'home', aerr: 'none', showPw: false, codeFor: 'signup', wmode: 'signup', picks: ['Wallpapers', 'Steam Profiles'], setup: 'closed', authFrom: 'home', pslide: 0, psheet: null, full: false, postTab: 'home' };
   var device = document.getElementById('device');
   var toastT;
   var ROOT_SCREENS = ['home', 'explore', 'library', 'you'];
@@ -1121,6 +1128,7 @@ a{color:inherit}
     if (scr === 'post') return S.postTab;
     if (scr === 'results' || scr === 'tag' || scr === 'search') return S.fromTab;
     if (scr === 'category') return 'home';
+    if (scr === 'pcolls') return S.pcFrom;
     if (scr === 'notifs') return S.nFrom;
     if (scr === 'visitor') return 'home';
     if (SUB.indexOf(scr) >= 0) return S.session === 'in' ? 'you' : '';
@@ -1166,7 +1174,7 @@ a{color:inherit}
   function cover(ids) { return '<i style="' + art(ids[0]) + '"></i><i style="' + art(ids[1]) + '"></i><i style="' + art(ids[2]) + '"></i>'; }
   function sect(id, title, sub, link, help) {
     return '<div class="sec-hd"><div><div class="sec-t"><h2 id="' + id + '">' + title + '</h2>' + (help ? '<button type="button" class="hlp" data-toast="Opens ' + help + '" aria-label="' + help + '">' + ic('question') + '</button>' : '') + '</div>' + (sub ? '<p>' + tail(sub) + '</p>' : '') + '</div>' +
-      (link ? '<a href="#" class="see" data-toast="Opens ' + link + '">' + (link === 'all tags' ? 'See all tags' : 'See all') + ic('arrow-right') + '</a>' : '') + '</div>';
+      (link ? '<a href="#" class="see" ' + (link === 'Public Collections' ? 'data-go="pcolls"' : 'data-toast="Opens ' + link + '"') + '>' + (link === 'all tags' ? 'See all tags' : 'See all') + ic('arrow-right') + '</a>' : '') + '</div>';
   }
 
 
@@ -1192,7 +1200,7 @@ a{color:inherit}
   }
   var COLLS = [['Neon nights', 'haruki.px', 24, [3, 0, 4]], ['Retro OS', 'deadtype', 12, [8, 5, 2]], ['Minimal desks', 'ghostgrain', 9, [1, 9, 7]], ['Film grain', 'darkroom.lab', 6, [6, 2, 0]]];
   function shelf() {
-    return '<section class="shelf" aria-labelledby="sh-c"><div class="sh-hd"><h2 id="sh-c">Collections for you</h2><a href="#" class="see" data-toast="Opens Public Collections">See all</a></div>' +
+    return '<section class="shelf" aria-labelledby="sh-c"><div class="sh-hd"><h2 id="sh-c">Collections for you</h2><a href="#" class="see" data-go="pcolls">See all</a></div>' +
       '<ul class="sh-row">' + COLLS.map(function (c) {
         return '<li class="coll"><a href="#" class="cv" data-toast="Opens ' + c[0] + '" aria-label="' + c[0] + ', ' + c[2] + ' posts, by ' + c[1] + '">' + cover(c[3]) +
           '<span class="cnt">' + ic('stack') + c[2] + '</span></a>' +
@@ -1781,9 +1789,11 @@ a{color:inherit}
   }
 
   // category and tag pages share the tools row
+  function sortKey() { return S.screen === 'pcolls' ? 'csort' : 'sort'; }
+  function sortOpts() { return S.screen === 'pcolls' ? [['relevant', 'Relevant'], ['updated', 'Recently updated'], ['popular', 'Popular']] : [['relevant', 'Relevant'], ['newest', 'Newest'], ['popular', 'Popular']]; }
   function sortChip() {
-    var L = { relevant: 'Relevant', newest: 'Newest', popular: 'Popular' };
-    return '<span class="sortw"><button type="button" class="chip" id="sortBtn" aria-haspopup="menu" aria-expanded="' + S.sortOpen + '">' + L[S.sort] + ic(S.sortOpen ? 'caret-up' : 'caret-down') + '</button></span>';
+    var cur = sortOpts().filter(function (o) { return o[0] === S[sortKey()]; })[0];
+    return '<span class="sortw"><button type="button" class="chip" id="sortBtn" aria-haspopup="menu" aria-expanded="' + S.sortOpen + '">' + cur[1] + ic(S.sortOpen ? 'caret-up' : 'caret-down') + '</button></span>';
   }
   function sortMenu() {
     if (!S.sortOpen) return '';
@@ -1791,8 +1801,9 @@ a{color:inherit}
     var r = b ? b.getBoundingClientRect() : null, d = device.getBoundingClientRect();
     var top = r ? r.bottom - d.top + 8 : 200, left = r ? Math.min(r.left - d.left, d.width - 216) : 16;
     return '<div class="scrim clear" data-close-sort="1"></div><div class="smenu" role="menu" aria-label="Sort" style="top:' + Math.round(top) + 'px;left:' + Math.round(left) + 'px">' +
-      [['relevant', 'Relevant'], ['newest', 'Newest'], ['popular', 'Popular']].map(function (o) {
-        return '<button type="button" role="menuitemradio" aria-checked="' + (S.sort === o[0]) + '" data-sort="' + o[0] + '">' + o[1] + (S.sort === o[0] ? ic('check') : '') + '</button>';
+      sortOpts().map(function (o) {
+        var on = S[sortKey()] === o[0];
+        return '<button type="button" role="menuitemradio" aria-checked="' + on + '" data-sort="' + o[0] + '">' + o[1] + (on ? ic('check') : '') + '</button>';
       }).join('') + '</div>';
   }
   function toolsRow(tags) {
@@ -1807,7 +1818,7 @@ a{color:inherit}
     return '<nav class="l1" aria-label="Categories">' + cats.map(function (c) {
       var on = c === active, attr = c === 'All' ? 'data-go="home"' : CATS[c] ? 'data-cat="' + c + '"' : 'data-toast="Opens ' + esc(c) + '"';
       return '<a href="#"' + (on ? ' aria-current="page"' : ' ' + attr) + '>' + esc(c) + '</a>';
-    }).join('') + '<span class="sep" aria-hidden="true"></span><a href="#" data-toast="Opens Public Collections">Collections</a></nav>';
+    }).join('') + '<span class="sep" aria-hidden="true"></span><a href="#"' + (active === 'Collections' ? ' aria-current="page"' : ' data-go="pcolls"') + '>Collections</a></nav>';
   }
   function category() {
     var C = CATS[S.cat];
@@ -1822,6 +1833,65 @@ a{color:inherit}
       '<div class="related"><span class="flab">Related</span>' + rel.map(function (x) { return '<button type="button" class="chip" data-tagpage="' + esc(x[0]) + '">' + esc(x[0]) + '</button>'; }).join('') + '</div>' +
       '<div class="l2 tl2"><div class="tags"><button type="button" class="chip tool" id="filtersBtn" aria-haspopup="dialog" aria-expanded="' + S.filters + '">' + ic('sliders-horizontal') + 'Filters</button>' + sortChip() + '</div></div>' + mas(2, 16);
   }
+  // ---------- Public Collections (11.x) ----------
+  // [title, curator, posts, visible posts, contains, subscribers, days since a post was added, Official Creator, opens, days since created, cover art]
+  var PCOLLS = [
+    ['Neon nights', 'haruki.px', 24, 24, ['Wallpapers', 'Digital Art'], 88, 6, true, 400, 200, [3, 0, 4]],
+    ['Retro OS', 'deadtype', 12, 12, ['Wallpapers', 'Steam Profiles'], 19, 1, false, 60, 40, [8, 5, 2]],
+    ['Blue posts', 'vanta.blk', 18, 18, ['Wallpapers', 'PFPs + Banners'], 41, 2, false, 210, 120, [1, 7, 9]],
+    ['Dark PFPs', 'vanta.blk', 31, 30, ['PFPs + Banners'], 120, 12, false, 900, 300, [2, 8, 5]],
+    ['Phone setup', 'haruki.px', 12, 12, ['Wallpapers'], 30, 5, true, 150, 70, [0, 4, 6]],
+    ['Minimal desks', 'ghostgrain', 9, 9, ['Wallpapers'], 27, 20, false, 150, 90, [1, 9, 7]],
+    ['Anime profiles', 'ghostgrain', 9, 9, ['Steam Profiles', 'PFPs + Banners'], 22, 8, false, 120, 50, [4, 8, 2]],
+    ['Film grain', 'darkroom.lab', 6, 6, ['Photography'], 12, 3, false, 50, 30, [6, 2, 0]],
+    ['Quiet photos', 'mrbacon980', 7, 7, ['Photography'], 9, 10, false, 70, 45, [9, 3, 5]],
+    ['Pets of Wondx', 'mrbacon980', 3, 3, ['Photography'], 5, 9, false, 40, 60, [7, 1, 3]],
+    ['Animated Steam Guides', 'deadtype', 2, 2, ['Steam Profiles'], 3, 4, false, 12, 20, [5, 0]],
+    ['Moon study', 'splintahhh', 1, 1, ['Digital Art'], 1, 1, false, 3, 1, [6]],
+    ['My Steam Profiles', 'splintahhh', 2, 0, ['Steam Profiles'], 7, 30, false, 30, 80, []]
+  ];
+  var PC_CATS = ['Wallpapers', 'PFPs + Banners', 'Digital Art', 'Photography', 'Steam Profiles'];
+  // Relevant = interest × size × freshness (the desktop page's math, 21/set)
+  function relevant(x) { return (x[5] + 1) / (x[8] + 10) * Math.min(1, Math.log2(1 + x[3]) / Math.log2(13)) * Math.max(0.25, Math.pow(0.5, x[6] / 14)); }
+  function pcList() {
+    var list = PCOLLS.filter(function (x) {
+      if (x[3] < 1) return false; // the showcase shows a collection from its first visible post
+      if (S.pcon.length && !S.pcon.some(function (c) { return x[4].indexOf(c) >= 0; })) return false;
+      return S.pccr !== 'oc' || x[7];
+    });
+    list.sort(S.csort === 'updated' ? function (a, b) { return a[6] - b[6]; } : S.csort === 'popular' ? function (a, b) { return b[5] - a[5]; } : function (a, b) { return relevant(b) - relevant(a); });
+    // exploration slot: when no collection from the last 7 days made the first 8, the best new one takes position 8
+    if (S.csort === 'relevant' && list.length > 8) { var i = list.findIndex(function (x) { return x[9] <= 7; }); if (i > 7) list.splice(7, 0, list.splice(i, 1)[0]); }
+    return list;
+  }
+  function pcApplied() {
+    return S.pcon.map(function (c) { return ['contains:' + c, 'Contains ' + c]; }).concat(S.pccr === 'oc' ? [['creators', 'Official Creators']] : []);
+  }
+  function pcCard(x) {
+    var cells = '', on = !!S.subs[x[0]];
+    for (var j = 0; j < 3; j++) cells += j < x[10].length ? '<i style="' + art(x[10][j]) + '"></i>' : '<i class="empty"></i>';
+    var sub = S.session === 'out' ? '<a href="#" class="btn accent s36" data-go="login" aria-label="Subscribe to ' + esc(x[0]) + '">Subscribe</a>'
+      : '<button type="button" class="btn ' + (on ? 'outlined' : 'accent') + ' s36" data-sub="' + esc(x[0]) + '" aria-label="' + (on ? 'Subscribed to ' : 'Subscribe to ') + esc(x[0]) + '">' + (on ? 'Subscribed' : 'Subscribe') + '</button>';
+    return '<li class="coll"><a href="#" class="cv" data-toast="Opens ' + esc(x[0]) + '" aria-label="' + esc(x[0]) + ', ' + x[2] + (x[2] === 1 ? ' post' : ' posts') + ', by ' + x[1] + '">' + cells +
+      '<span class="cnt">' + ic('stack') + x[2] + '</span></a>' +
+      '<div class="cm"><div class="t"><b class="clamp1">' + one(x[0]) + '</b><a href="#" class="by" ' + (x[1] === 'haruki.px' ? 'data-go="visitor"' : 'data-toast="Opens ' + esc(x[1]) + '’s profile"') + '>' + esc(x[1]) + '</a></div>' + sub + '</div></li>';
+  }
+  function pcolls() {
+    var list = pcList(), ap = pcApplied();
+    var tools = '<div class="l2"><div class="tags">' +
+      '<button type="button" class="chip tool" id="filtersBtn" aria-haspopup="dialog" aria-expanded="' + S.filters + '">' + ic('sliders-horizontal') + 'Filters</button>' +
+      (ap.length ? '<button type="button" class="chip clr-chip" data-pc-clear="1">' + ic('x') + 'Clear</button>' +
+        ap.map(function (a) { return '<button type="button" class="chip on" data-pc-rm="' + esc(a[0]) + '" aria-label="' + esc(a[1]) + ', applied. Remove">' + esc(a[1]) + ic('x') + '</button>'; }).join('') : '') +
+      sortChip() + '</div></div>';
+    var create = S.session === 'out' ? '<a href="#" class="btn accent s36" data-go="login">Create a collection</a>' : '<button type="button" class="btn accent s36" data-toast="Opens New collection">Create a collection</button>';
+    var body = list.length ? '<ul class="pcg">' + list.map(pcCard).join('') + '</ul>' +
+        '<div class="pc-end"><h2>You’ve reached the end!</h2><p>' + (ap.length ? 'That’s every public collection that matches your filters. Clear them to see all of them.' : 'That’s every public collection on Wondx so far. Yours shows up here as soon as it’s public.') + '</p>' + create + '</div>'
+      : '<div class="pc-end"><h2 id="pc-none" tabindex="-1">No collections match</h2><p>Try another category, or clear the filters.</p><button type="button" class="btn outlined s36" data-pc-clear="1">Clear filters</button></div>';
+    return catNav('Collections') + '<div class="phead"><h1 class="ph-title">Public Collections</h1><p class="lede">' + tail('Curated sets of Steam profiles, wallpapers, matching PFPs and banners, and digital art from Wondx creators. Subscribe to get updates in your feed.') + '</p></div>' +
+      tools + body;
+  }
+  function pcSet(v) { S.pcf = v; S.pcon = v === 'wall' ? ['Wallpapers'] : v === 'nomatch' ? ['Photography'] : []; S.pccr = v === 'nomatch' ? 'oc' : 'everyone'; }
+
   // the Filters sheet leads with the category's own attribute (10.4)
   function catFilters(seg) {
     if (S.screen !== 'category') return '';
@@ -2183,14 +2253,16 @@ a{color:inherit}
     function seg(key, opts, label) {
       return '<div class="fseg" role="group" aria-label="' + label + '">' + opts.map(function (o) { return '<button type="button" data-f="' + key + '" data-fv="' + o[0] + '" aria-pressed="' + (S[key] === o[0]) + '">' + o[1] + '</button>'; }).join('') + '</div>';
     }
+    var pc = S.screen === 'pcolls';
     return '<div class="scrim" data-close="1"></div>' +
       '<div class="sheet in" id="fsheet" role="dialog" aria-modal="true" aria-labelledby="fl-t">' +
       '<div class="grab" aria-hidden="true"></div>' +
-      '<div class="shd"><h2 id="fl-t">Filters</h2><div class="shd-r"><button type="button" class="clr" data-toast="Clears Tag and Creators">Clear all</button><button type="button" class="xb" data-close="1" aria-label="Close">' + ic('x') + '</button></div></div>' +
+      '<div class="shd"><h2 id="fl-t">Filters</h2><div class="shd-r"><button type="button" class="clr" ' + (pc ? 'data-pc-clear="1"' : 'data-toast="Clears Tag and Creators"') + '>Clear all</button><button type="button" class="xb" data-close="1" aria-label="Close">' + ic('x') + '</button></div></div>' +
       '<div class="fbody">' + catFilters(seg) +
+        (pc ? '<div class="fgrp"><span class="flab" id="fl-con">Contains</span><div class="fseg" role="group" aria-labelledby="fl-con">' + PC_CATS.map(function (c) { return '<button type="button" data-pc-con="' + esc(c) + '" aria-pressed="' + (S.pcon.indexOf(c) >= 0) + '">' + esc(c) + '</button>'; }).join('') + '</div></div>' :
         '<div class="fgrp"><label class="flab" for="ftag">Tag</label><div class="fsearch">' + ic('magnifying-glass') + '<input id="ftag" type="search" placeholder="Search any tag" autocomplete="off"></div>' +
-        '<p class="fhelp">The row shows the most used tags here. Search reaches the rest.</p></div>' +
-        '<div class="fgrp"><span class="flab">Creators</span>' + seg('creators', [['everyone', 'Everyone'], ['oc', 'Official Creators']], 'Creators') + '</div>' +
+        '<p class="fhelp">The row shows the most used tags here. Search reaches the rest.</p></div>') +
+        '<div class="fgrp"><span class="flab">Creators</span>' + seg(pc ? 'pccr' : 'creators', [['everyone', 'Everyone'], ['oc', 'Official Creators']], 'Creators') + '</div>' +
         '<div class="fdiv" role="separator"></div>' +
         '<div class="fgrp"><span class="flab">Content</span>' +
           '<div class="frow"><span id="fl-ai">Show AI-generated posts</span><button type="button" class="sw" role="switch" aria-checked="' + S.ai + '" aria-labelledby="fl-ai" data-sw="ai"><i></i></button></div>' +
@@ -2220,6 +2292,7 @@ a{color:inherit}
       case 'results': return results();
       case 'category': return category();
       case 'tag': return tagPage();
+      case 'pcolls': return pcolls();
       case 'upload': return uploadTypes();
       case 'uform': return uploadForm();
       case 'notifs': return notifsPage();
@@ -2236,6 +2309,8 @@ a{color:inherit}
     swipe();
     if (S.screen === 'search') { var sq = document.getElementById('sq'); if (sq && document.activeElement !== sq) { sq.focus({ preventScroll: true }); sq.setSelectionRange(sq.value.length, sq.value.length); } }
     var hs = device.querySelector('.hm-scroll'); if (hs) hs.scrollLeft = hs.scrollWidth;
+    // Collections is the last tab: bring it into view so the current page shows in the row
+    var l1c = S.screen === 'pcolls' && device.querySelector('.l1'); if (l1c) l1c.scrollLeft = l1c.scrollWidth;
     panelUI();
   }
   function go(k) {
@@ -2247,6 +2322,7 @@ a{color:inherit}
     if (k === 'search') { if (!S.keepQ) S.q = ''; S.keepQ = false; S.searchBack = S.screen; if (['results', 'search', 'tag'].indexOf(S.screen) < 0) { S.searchFrom = S.screen; S.fromTab = tabOf(S.screen); } }
     if (k === 'post') { S.postTab = tabOf(S.screen); S.pslide = POSTS[S.ptype].start || 0; S.psheet = null; S.full = false; if (S.screen === 'post') { S.screen = ''; } else S.prev = S.screen; }
     if (k === 'settings' || k === 'about' || k === 'visitor' || SUB.indexOf(k) >= 0) S.prev = S.screen;
+    if (k === 'pcolls') S.pcFrom = S.screen === 'explore' ? 'explore' : 'home';
     if (k === 'you' || k === 'visitor') { S.ptab = 'posts'; S.pcat = 'All'; S.panel = 'activity'; }
     S.screen = k; S.sheet = false; S.filters = false; S.showcase = false; S.sortOpen = false; render(false);
     var m = document.getElementById(k === 'search' ? 'sq' : 'main'); if (m) m.focus({ preventScroll: true });
@@ -2279,7 +2355,7 @@ a{color:inherit}
   var GROUPS = [
     ['session', 'Who is looking', [['in', 'Logged in'], ['out', 'Logged out']]],
     ['screen', 'Screen', [['home', 'Home'], ['explore', 'Explore'], ['library', 'Library'], ['you', 'You'], ['visitor', 'Haruki’s profile'], ['settings', 'Settings'], ['about', 'About'],
-      ['following', 'Following'], ['leaderboard', 'Leaderboard'], ['updates', 'Updates'], ['dashboard', 'Creator Dashboard'], ['oc', 'Official Creator'], ['post', 'Post'], ['search', 'Search'], ['results', 'Search results'], ['category', 'Category'], ['tag', 'Tag page'], ['upload', 'Upload · types'], ['uform', 'Upload · form'], ['notifs', 'Notifications'], ['welcome', 'Welcome'], ['signup', 'Sign up · email'], ['login', 'Log in · email'], ['code', 'Code'], ['reset', 'Reset password'], ['newpw', 'Set a new password'], ['birthday', 'Birthday'], ['under13', 'Under 13'], ['interests', 'Interests']]],
+      ['following', 'Following'], ['leaderboard', 'Leaderboard'], ['updates', 'Updates'], ['dashboard', 'Creator Dashboard'], ['oc', 'Official Creator'], ['post', 'Post'], ['search', 'Search'], ['results', 'Search results'], ['category', 'Category'], ['tag', 'Tag page'], ['pcolls', 'Public Collections'], ['upload', 'Upload · types'], ['uform', 'Upload · form'], ['notifs', 'Notifications'], ['welcome', 'Welcome'], ['signup', 'Sign up · email'], ['login', 'Log in · email'], ['code', 'Code'], ['reset', 'Reset password'], ['newpw', 'Set a new password'], ['birthday', 'Birthday'], ['under13', 'Under 13'], ['interests', 'Interests']]],
     ['wmode', 'Came from', [['signup', 'Sign up'], ['login', 'Log in']]],
     ['aerr', 'State', [['none', 'Default'], ['email', 'Email not valid'], ['wrong', 'Wrong password'], ['many', 'Too many tries'], ['discord', 'Discord failed'], ['discordEmail', 'Email signs in with Discord'], ['short', 'Password too short'], ['leaked', 'Password leaked'], ['expired', 'Code expired'], ['sent', 'New code sent'], ['filled', 'Filled'], ['missing', 'Missing a field'], ['notreal', 'Not a real date']]],
     ['setup', 'Set up your profile', [['closed', 'Closed'], ['open', 'Open'], ['taken', 'Username taken'], ['invalid', 'Not valid'], ['animated', 'Animated picture']]],
@@ -2289,6 +2365,8 @@ a{color:inherit}
     ['steamConn', 'Steam account', [['yes', 'Connected'], ['no', 'Not connected']]],
     ['live', 'After publishing', [['off', 'Nothing'], ['on', 'Your post is live.']]],
     ['rq', 'Search for', [['dark wallpaper', 'dark wallpaper'], ['haruki.px', 'An exact @'], ['wallpaepr', 'A typo'], ['xqzvbn', 'No results']]],
+    ['pcf', 'Collections filters', [['none', 'None'], ['wall', 'Contains Wallpapers'], ['nomatch', 'Nothing matches']]],
+    ['csort', 'Collections sort', [['relevant', 'Relevant'], ['updated', 'Recently updated'], ['popular', 'Popular']]],
     ['cat', 'Category', [['Wallpapers', 'Wallpapers'], ['Steam Profiles', 'Steam Profiles']]],
     ['ptype', 'Post', [['image', 'One image'], ['gallery', 'Gallery'], ['steam', 'Steam Profile'], ['pfp', 'PFP & Banner'], ['guide', 'Steam Guide'], ['external', 'Creator’s site']]],
     ['pview', 'Viewer', [['visitor', 'Visitor'], ['owner', 'Owner'], ['staff', 'Staff']]],
@@ -2333,6 +2411,7 @@ a{color:inherit}
     if (k === 'steamConn' && !(S.screen === 'uform' && S.utype === 'guide')) return false;
     if (k === 'live' && (S.screen !== 'home' || S.session === 'out')) return false;
     if (k === 'cat' && S.screen !== 'category') return false;
+    if ((k === 'pcf' || k === 'csort') && S.screen !== 'pcolls') return false;
     if ((k === 'lbp' || k === 'board') && S.screen !== 'leaderboard') return false;
     if (k === 'vote' && (S.screen !== 'updates' || S.session === 'out')) return false;
     if (k === 'dper' && S.screen !== 'dashboard') return false;
@@ -2342,7 +2421,7 @@ a{color:inherit}
   function panelUI() {
     document.getElementById('protoGroups').innerHTML = GROUPS.filter(shown).map(function (gr) {
       var opts = gr[2];
-      if (gr[0] === 'screen' && S.session === 'out') opts = opts.filter(function (o) { return ['home', 'explore', 'visitor', 'about', 'leaderboard', 'updates', 'post', 'search', 'results', 'category', 'tag'].concat(AUTH).indexOf(o[0]) >= 0; });
+      if (gr[0] === 'screen' && S.session === 'out') opts = opts.filter(function (o) { return ['home', 'explore', 'visitor', 'about', 'leaderboard', 'updates', 'post', 'search', 'results', 'category', 'tag', 'pcolls'].concat(AUTH).indexOf(o[0]) >= 0; });
       if (gr[0] === 'ptab' && S.screen === 'visitor') opts = opts.slice(0, 2);
       if (gr[0] === 'aerr') { var AE = { welcome: ['none', 'discord'], login: ['none', 'email', 'wrong', 'many', 'discordEmail'], signup: ['none', 'short', 'leaked'], code: ['none', 'wrong', 'expired', 'many', 'sent'], birthday: ['none', 'filled', 'missing', 'notreal'] }[S.screen] || [];
         opts = opts.filter(function (o) { return AE.indexOf(o[0]) >= 0; }).map(function (o) { return S.screen === 'code' && o[0] === 'wrong' ? ['wrong', 'Wrong code'] : S.screen === 'code' && o[0] === 'many' ? ['many', 'Too many tries'] : S.screen === 'birthday' && o[0] === 'none' ? ['none', 'Empty'] : o; }); }
@@ -2359,6 +2438,7 @@ a{color:inherit}
       if (v === 'notifs' && S.screen !== 'notifs') { S.nFrom = tabOf(S.screen); S.prev = S.screen; }
       if ((v === 'upload' || v === 'uform') && ['upload', 'uform'].indexOf(S.screen) < 0) { S.uFrom = S.screen; S.uchanging = false; }
       if (['results', 'tag'].indexOf(v) >= 0) S.fromTab = tabOf(S.screen);
+      if (v === 'pcolls' && S.screen !== 'pcolls') S.pcFrom = S.screen === 'explore' ? 'explore' : 'home';
       if (v === 'post' && S.screen !== 'post') { S.postTab = tabOf(S.screen); S.pslide = POSTS[S.ptype].start || 0; }
       S.screen = v; S.sheet = false; S.filters = false; S.showcase = false; S.psheet = null; S.full = false; if (v === 'visitor' && S.ptab === 'drafts') S.ptab = 'posts'; }
     else if (k === 'sheet') S.sheet = v === 'open';
@@ -2371,6 +2451,7 @@ a{color:inherit}
     else if (k === 'steamConn') S.steamConn = v === 'yes';
     else if (k === 'live') { S.published = v === 'on'; if (S.published) { S.pubTitle = 'Night city'; S.pubPts = 20; S.pubArt = 6; } }
     else if (k === 'cat') { S.cat = v; S.ctype = 'all'; S.ctag = null; }
+    else if (k === 'pcf') pcSet(v);
     else if (k === 'psheet') { S.psheet = v === 'none' || (v === 'recreate' && S.ptype !== 'steam') ? null : v; S.full = false; }
     else if (k === 'ptype') { S.ptype = v; S.pslide = POSTS[v].start || 0; S.psheet = null; }
     else S[k] = v;
@@ -2379,6 +2460,7 @@ a{color:inherit}
 
   // ---------- events ----------
   document.addEventListener('click', function (e) {
+    var x0;
     var p = e.target.closest('[data-p]'); if (p) { onPanel(p.dataset.p, p.dataset.v); return; }
     if (e.target.closest('[data-back]')) { back(); return; }
     var g = e.target.closest('[data-go]'); if (g) { e.preventDefault(); go(g.dataset.go); return; }
@@ -2417,7 +2499,7 @@ a{color:inherit}
     if (e.target.closest('#copyLive')) { S.copied = true; render(); document.getElementById('copyLive').focus(); setTimeout(function () { S.copied = false; if (S.published) render(); }, 2000); return; }
     if (e.target.closest('[data-create-another]')) { S.published = false; S.uFrom = 'home'; S.utitle = USAMPLE[S.utype].title; S.screen = 'uform'; render(false); document.getElementById('main').focus({ preventScroll: true }); return; }
     if (e.target.closest('#sortBtn')) { S.sortOpen = !S.sortOpen; render(); var sm = device.querySelector('.smenu [aria-checked="true"]'); if (sm) sm.focus(); return; }
-    var so = e.target.closest('[data-sort]'); if (so) { S.sort = so.dataset.sort; S.sortOpen = false; render(); document.getElementById('sortBtn').focus(); return; }
+    var so = e.target.closest('[data-sort]'); if (so) { S[sortKey()] = so.dataset.sort; S.sortOpen = false; render(); document.getElementById('sortBtn').focus(); return; }
     if (e.target.closest('[data-close-sort]')) { S.sortOpen = false; render(); return; }
     var dq = e.target.closest('[data-q]'); if (dq) { e.preventDefault(); runSearch(dq.dataset.q); return; }
     var tp = e.target.closest('[data-tagpage]'); if (tp) { e.preventDefault(); if (S.screen !== 'tag') { S.tagBack = S.screen; S.fromTab = tabOf(S.screen); } S.tagq = tp.dataset.tagpage; S.screen = 'tag'; S.sortOpen = false; render(false); document.getElementById('main').focus({ preventScroll: true }); return; }
@@ -2430,9 +2512,14 @@ a{color:inherit}
     if (e.target.closest('#artBtn')) { if (S.swiped) { S.swiped = false; return; } S.full = true; S.psheet = null; render(); device.querySelector('#full .xb').focus(); return; }
     var ps = e.target.closest('[data-psheet]'); if (ps) { e.preventDefault(); openPostSheet(ps.dataset.psheet, ps.dataset.focus); return; }
     var sl = e.target.closest('[data-slide]'); if (sl) { S.pslide = +sl.dataset.slide; render(); var t2 = device.querySelector('[data-slide="' + S.pslide + '"]'); if (t2) t2.focus({ preventScroll: true }); return; }
+    if ((x0 = e.target.closest('[data-sub]'))) { var sn = x0.dataset.sub; S.subs[sn] = !S.subs[sn]; render(); var sb = device.querySelector('[data-sub="' + sn + '"]'); if (sb) sb.focus({ preventScroll: true }); return; }
+    if ((x0 = e.target.closest('[data-pc-con]'))) { var cc = x0.dataset.pcCon, ci = S.pcon.indexOf(cc); if (ci >= 0) S.pcon.splice(ci, 1); else S.pcon.push(cc); S.pcf = ''; render(); var cb = device.querySelector('[data-pc-con="' + cc + '"]'); if (cb) cb.focus(); return; }
+    if ((x0 = e.target.closest('[data-pc-rm]'))) { var rm = x0.dataset.pcRm; if (rm === 'creators') S.pccr = 'everyone'; else S.pcon = S.pcon.filter(function (c) { return 'contains:' + c !== rm; }); S.pcf = ''; render(); pcFocus(); return; }
+    if (e.target.closest('[data-pc-clear]')) { var inSheet = S.filters; S.pcon = []; S.pccr = 'everyone'; S.pcf = 'none'; render(); if (inSheet) device.querySelector('#fsheet .clr').focus(); else pcFocus(); return; }
     if (e.target.closest('#filtersBtn') || e.target.closest('[data-open-filters]')) { openFilters(); return; }
     if (e.target.closest('[data-close]')) { closeSheet(); return; }
     var x;
+    if ((x = e.target.closest('[data-f]')) && x.dataset.f === 'pccr') S.pcf = '';
     if ((x = e.target.closest('[data-f]'))) { S[x.dataset.f] = x.dataset.fv; render(); var b2 = device.querySelector('[data-f="' + x.dataset.f + '"][data-fv="' + x.dataset.fv + '"]'); if (b2) b2.focus(); return; }
     if ((x = e.target.closest('[data-sw]'))) { S[x.dataset.sw] = !S[x.dataset.sw]; render(); var b3 = device.querySelector('[data-sw="' + x.dataset.sw + '"]'); if (b3) b3.focus(); return; }
     if ((x = e.target.closest('[data-panel]'))) { S.panel = x.dataset.panel; render(); var b4 = device.querySelector('[data-panel="' + S.panel + '"]'); if (b4) b4.focus(); return; }
@@ -2446,6 +2533,7 @@ a{color:inherit}
     if ((x = e.target.closest('[data-lib]'))) { S.lib = x.dataset.lib; render(); var b7 = device.querySelector('[data-lib="' + S.lib + '"]'); if (b7) b7.focus(); return; }
     var t = e.target.closest('[data-toast]'); if (t) { e.preventDefault(); toast(t.dataset.toast); }
   });
+  function pcFocus() { var f = device.querySelector('.chip.on') || document.getElementById('pc-none') || document.getElementById('filtersBtn'); if (f) f.focus({ preventScroll: true }); }
   function authFocus() { var m = device.querySelector('.auth input, .auth .btn'); if (m) m.focus({ preventScroll: true }); }
   function authDone() { S.session = 'in'; S.screen = ['library', 'you'].indexOf(S.authFrom) >= 0 || AUTH.indexOf(S.authFrom) >= 0 ? 'home' : (S.authFrom || 'home'); S.aerr = 'none'; render(false); var m = document.getElementById('main'); if (m) m.focus({ preventScroll: true }); }
   function authNext(from) {
