@@ -1,13 +1,387 @@
 [
- {"name": "pc-main", "actions": [{"set": ["screen", "pcolls"]}]},
- {"name": "pc-end", "actions": [{"set": ["screen", "pcolls"]}, {"scroll": ".pc-end"}]},
- {"name": "pc-sort-menu", "actions": [{"set": ["screen", "pcolls"]}, {"click": "#sortBtn"}]},
- {"name": "pc-updated", "actions": [{"set": ["screen", "pcolls"]}, {"set": ["csort", "updated"]}]},
- {"name": "pc-filters", "actions": [{"set": ["screen", "pcolls"]}, {"click": "#filtersBtn"}]},
- {"name": "pc-contains", "actions": [{"set": ["screen", "pcolls"]}, {"set": ["pcf", "wall"]}]},
- {"name": "pc-contains-end", "actions": [{"set": ["screen", "pcolls"]}, {"set": ["pcf", "wall"]}, {"scroll": ".pc-end"}]},
- {"name": "pc-nomatch", "actions": [{"set": ["screen", "pcolls"]}, {"set": ["pcf", "nomatch"]}]},
- {"name": "pc-logged-out", "actions": [{"set": ["session", "out"]}, {"set": ["screen", "pcolls"]}]},
- {"name": "pc-dark", "actions": [{"set": ["screen", "pcolls"]}, {"set": ["theme", "dark"]}]},
- {"name": "pc-dark-filters", "actions": [{"set": ["screen", "pcolls"]}, {"set": ["theme", "dark"]}, {"set": ["pcf", "wall"]}, {"click": "#filtersBtn"}]}
+ {
+  "name": "pc-main",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "pcolls"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "pc-end",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "pcolls"
+    ]
+   },
+   {
+    "scroll": ".pc-end"
+   }
+  ]
+ },
+ {
+  "name": "pc-sort-menu",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "pcolls"
+    ]
+   },
+   {
+    "click": "#sortBtn"
+   }
+  ]
+ },
+ {
+  "name": "pc-updated",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "pcolls"
+    ]
+   },
+   {
+    "set": [
+     "csort",
+     "updated"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "pc-filters",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "pcolls"
+    ]
+   },
+   {
+    "click": "#filtersBtn"
+   }
+  ]
+ },
+ {
+  "name": "pc-contains",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "pcolls"
+    ]
+   },
+   {
+    "set": [
+     "pcf",
+     "wall"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "pc-contains-end",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "pcolls"
+    ]
+   },
+   {
+    "set": [
+     "pcf",
+     "wall"
+    ]
+   },
+   {
+    "scroll": ".pc-end"
+   }
+  ]
+ },
+ {
+  "name": "pc-nomatch",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "pcolls"
+    ]
+   },
+   {
+    "set": [
+     "pcf",
+     "nomatch"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "pc-logged-out",
+  "actions": [
+   {
+    "set": [
+     "session",
+     "out"
+    ]
+   },
+   {
+    "set": [
+     "screen",
+     "pcolls"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "pc-dark",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "pcolls"
+    ]
+   },
+   {
+    "set": [
+     "theme",
+     "dark"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "pc-dark-filters",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "pcolls"
+    ]
+   },
+   {
+    "set": [
+     "theme",
+     "dark"
+    ]
+   },
+   {
+    "set": [
+     "pcf",
+     "wall"
+    ]
+   },
+   {
+    "click": "#filtersBtn"
+   }
+  ]
+ },
+ {
+  "name": "cp-visitor",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "cp-visitor-end",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "scroll": ".ch-end"
+   }
+  ]
+ },
+ {
+  "name": "cp-following",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "following"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "cp-following-caught",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "following"
+    ]
+   },
+   {
+    "scroll": ".ch-caught"
+   }
+  ]
+ },
+ {
+  "name": "cp-owner",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "owner"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "cp-empty",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "empty"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "cp-gone",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "gone"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "cp-menu",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "click": "[data-csheet]"
+   }
+  ]
+ },
+ {
+  "name": "cp-menu-staff",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "staff"
+    ]
+   },
+   {
+    "click": "[data-csheet]"
+   }
+  ]
+ },
+ {
+  "name": "cp-unsub-toast",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "following"
+    ]
+   },
+   {
+    "click": ".ch-act [data-sub]"
+   }
+  ]
+ },
+ {
+  "name": "cp-logged-out",
+  "actions": [
+   {
+    "set": [
+     "session",
+     "out"
+    ]
+   },
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "cp-dark",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "theme",
+     "dark"
+    ]
+   }
+  ]
+ }
 ]
