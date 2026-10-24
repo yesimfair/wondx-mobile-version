@@ -383,5 +383,227 @@
     ]
    }
   ]
+ },
+ {
+  "name": "ce-edit",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "owner"
+    ]
+   },
+   {
+    "click": "[data-cedit=edit]"
+   }
+  ]
+ },
+ {
+  "name": "ce-edit-bottom",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "owner"
+    ]
+   },
+   {
+    "click": "[data-cedit=edit]"
+   },
+   {
+    "scroll": ".ce-del"
+   }
+  ]
+ },
+ {
+  "name": "ce-public",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "owner"
+    ]
+   },
+   {
+    "click": "[data-cedit=edit]"
+   },
+   {
+    "click": "[data-ce-vis=public]"
+   }
+  ]
+ },
+ {
+  "name": "ce-cover",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "owner"
+    ]
+   },
+   {
+    "set": [
+     "cedit",
+     "cover"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "ce-cover-picked",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "owner"
+    ]
+   },
+   {
+    "set": [
+     "cedit",
+     "cover"
+    ]
+   },
+   {
+    "click": "[data-ce-pick='2']"
+   },
+   {
+    "click": "[data-ce=done]"
+   }
+  ]
+ },
+ {
+  "name": "ce-delete",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "owner"
+    ]
+   },
+   {
+    "set": [
+     "cedit",
+     "delete"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "ce-mod",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "owner"
+    ]
+   },
+   {
+    "set": [
+     "cedit",
+     "mod"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "ce-dark",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "owner"
+    ]
+   },
+   {
+    "set": [
+     "theme",
+     "dark"
+    ]
+   },
+   {
+    "set": [
+     "cedit",
+     "cover"
+    ]
+   }
+  ]
+ },
+ {
+  "name": "ce-dark-edit",
+  "actions": [
+   {
+    "set": [
+     "screen",
+     "coll"
+    ]
+   },
+   {
+    "set": [
+     "cv",
+     "owner"
+    ]
+   },
+   {
+    "set": [
+     "theme",
+     "dark"
+    ]
+   },
+   {
+    "set": [
+     "cedit",
+     "edit"
+    ]
+   }
+  ]
  }
 ]

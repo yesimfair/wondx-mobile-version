@@ -1078,6 +1078,26 @@ a{color:inherit}
 .ch-end{margin:0;padding:32px 0 8px;text-align:center;font:500 16px/24px var(--body)}
 .cs-lab{display:flex;flex-direction:column;padding:4px 24px 8px;font:400 13px/16px var(--body);color:var(--text-secondary)}
 .toast .undo{margin-left:auto;flex:none;height:24px;padding:0;border:0;background:transparent;color:var(--text-on-ink);font:500 14px/20px var(--body);text-decoration:underline;text-underline-offset:2px}
+/* M15 · Edit collection, Change cover and Delete (13.4) as sheets: typing, so the actions sit under the last field */
+.sheet.ce{max-height:calc(100% - 48px);display:flex;flex-direction:column}
+.ce-body{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:0 24px 24px;display:flex;flex-direction:column;gap:16px}
+.ce-f{display:flex;flex-direction:column;gap:8px}
+.ce-f .ta{min-height:88px}
+.ce-cur{display:flex;align-items:center;gap:16px}
+.ce-cur .cv{flex:none;width:144px}
+.ce-cur-t{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.ce-f .kseg{width:100%;max-width:none}
+.ce-f .kseg button{flex:1;color:var(--text-primary)}
+.ce-f .kseg button[aria-disabled="true"]{color:var(--text-disabled);cursor:not-allowed}
+.ce-del{margin-top:8px;padding-top:16px;border-top:1px solid var(--border-default)}
+.btn.tdanger{width:100%;height:44px;background:var(--tint-danger);color:var(--text-danger)}
+.ce-prev .cv{width:100%}
+.ce-grid{display:grid;grid-template-columns:repeat(auto-fill,96px);justify-content:space-between;gap:8px;padding:4px}
+.ce-t{position:relative;width:96px;height:96px;padding:0;border:0;border-radius:12px;font:500 13px/16px var(--body);color:var(--text-primary)}
+.ce-t.auto{background:var(--surface-sunken)}
+.ce-t[aria-pressed="true"]{box-shadow:0 0 0 2px var(--surface-raised),0 0 0 4px var(--action-accent)}
+.ce-ck{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:999px;background:var(--action-accent);color:var(--text-on-accent);display:grid;place-items:center;box-shadow:0 0 0 2px var(--surface-raised)}
+.ce-ck .ic{width:16px;height:16px}
 @media (prefers-reduced-motion:no-preference){.sheet.in{animation:sh .24s cubic-bezier(.2,.8,.2,1)}@keyframes sh{from{transform:translateY(24px);opacity:0}}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
@@ -1110,7 +1130,7 @@ a{color:inherit}
   var S = { session: 'in', screen: 'home', prev: 'home', sheet: false, theme: 'light', dot: true, feed: 'plain', filters: false, age: 'adult', creators: 'everyone', cw: 'warn', ai: true,
             panel: 'activity', showcase: false, tag: null, ptab: 'posts', pcat: 'All', lib: 'saved', plan: 'pro',
             ftab: 'creators', lbp: 'week', board: 'overall', vote: 'open', voteIdx: 0, dper: '30', dmet: 'impressions', dsort: 'impressions',
-            ptype: 'image', pview: 'visitor', cstate: 'default', q: '', recent: ['dark wallpaper', 'haruki.px', 'steam profile anime', '4k'], rq: 'dark wallpaper', rtab: 'all', cat: 'Wallpapers', ctype: 'all', ctag: null, sort: 'relevant', sortOpen: false, tagq: '4k dark', fres: 'any', fshow: 'any', fmotion: 'any', searchFrom: 'home', searchBack: 'home', tagBack: 'home', fromTab: 'home', utype: 'wallpaper', utitle: 'Night city', uai: false, ucw: false, uwm: true, pfpMode: 'both', steamConn: true, csort: 'relevant', pcon: [], pccr: 'everyone', pcf: 'none', subs: { 'Phone setup': true, 'My Steam Profiles': true }, pcFrom: 'home', cv: 'visitor', collName: 'Blue posts', collFrom: 'pcolls', csheet: false, usheet: null, uswitchTo: null, uchanging: false, publishing: false, published: false, pubTitle: '', pubPts: 20, pubArt: 6, copied: false, uFrom: 'home', nfilter: 'all', nstate: 'default', nread: 'some', ninvite: 'open', nsheet: null, nFrom: 'home', aerr: 'none', showPw: false, codeFor: 'signup', wmode: 'signup', picks: ['Wallpapers', 'Steam Profiles'], setup: 'closed', authFrom: 'home', pslide: 0, psheet: null, full: false, postTab: 'home' };
+            ptype: 'image', pview: 'visitor', cstate: 'default', q: '', recent: ['dark wallpaper', 'haruki.px', 'steam profile anime', '4k'], rq: 'dark wallpaper', rtab: 'all', cat: 'Wallpapers', ctype: 'all', ctag: null, sort: 'relevant', sortOpen: false, tagq: '4k dark', fres: 'any', fshow: 'any', fmotion: 'any', searchFrom: 'home', searchBack: 'home', tagBack: 'home', fromTab: 'home', utype: 'wallpaper', utitle: 'Night city', uai: false, ucw: false, uwm: true, pfpMode: 'both', steamConn: true, csort: 'relevant', pcon: [], pccr: 'everyone', pcf: 'none', subs: { 'Phone setup': true, 'My Steam Profiles': true }, pcFrom: 'home', cv: 'visitor', collName: 'Blue posts', collFrom: 'pcolls', csheet: false, cedit: null, cmod: false, ccover: {}, cdraft: 'auto', cdName: '', cdDesc: '', cdPriv: true, cgone: {}, usheet: null, uswitchTo: null, uchanging: false, publishing: false, published: false, pubTitle: '', pubPts: 20, pubArt: 6, copied: false, uFrom: 'home', nfilter: 'all', nstate: 'default', nread: 'some', ninvite: 'open', nsheet: null, nFrom: 'home', aerr: 'none', showPw: false, codeFor: 'signup', wmode: 'signup', picks: ['Wallpapers', 'Steam Profiles'], setup: 'closed', authFrom: 'home', pslide: 0, psheet: null, full: false, postTab: 'home' };
   var device = document.getElementById('device');
   var toastT;
   var ROOT_SCREENS = ['home', 'explore', 'library', 'you'];
@@ -1282,7 +1302,7 @@ a{color:inherit}
     var dl = [['Fallen Angel', 'haruki.px', 'Today', 0], ['Batman Steam Profile', 'vanta.blk', 'Yesterday', 5], ['Cat PFP', 'ghostgrain', '3 days ago', 7], ['Glass Hours', 'deadtype', '5 days ago', 12], ['Rain District', 'haruki.px', '1 week ago', 9], ['North Wall', 'splintahhh', '2 weeks ago', 11]];
     function scover(ids) { return ids.map(function (i) { return i < 0 ? '<i class="empty"></i>' : '<i style="' + art(i) + '"></i>'; }).join(''); }
     var body = S.lib === 'saved' ?
-      '<ul class="g2 lcols">' + saved.map(function (c) {
+      '<ul class="g2 lcols">' + saved.filter(function (c) { return !S.cgone[c[0]]; }).map(function (c) {
         return '<li class="coll"><a href="#" class="cv" ' + (c[0] === 'All saved' ? 'data-toast="Opens All saved"' : 'data-coll="' + c[0] + '"') + ' aria-label="' + c[0] + ', ' + c[3] + ' posts">' + scover(c[2]) + '<span class="cnt">' + ic('stack') + c[3] + '</span></a>' +
           '<div class="t"><b class="clamp1">' + one(c[0]) + (c[4] ? ' ' + ic('lock-simple', 'lk') + '<span class="sr">, private</span>' : '') + '</b><span class="by">' + esc(c[1]) + '</span></div></li>';
       }).join('') + '<li class="coll"><button type="button" class="newc" data-toast="Opens New collection">' + ic('plus') + '<span>New collection</span></button></li></ul>' :
@@ -1926,7 +1946,7 @@ a{color:inherit}
   function collData() {
     var v = S.cv;
     if (v === 'owner' || v === 'empty') { var m = MINE[S.collName] || MINE['Wondx Wallpapers'], nm = MINE[S.collName] ? S.collName : 'Wondx Wallpapers';
-      return { title: nm, owner: true, total: m[0], visible: m[0], updated: 'today', subs: m[2], priv: m[1], desc: '', fresh: 0 }; }
+      return { title: nm, owner: true, total: m[0], visible: m[0], updated: 'today', subs: m[2], priv: m[1], desc: m[3] || '', fresh: 0 }; }
     if (v === 'gone') return { title: 'My Steam Profiles', by: 'splintahhh', total: 2, visible: 0, updated: '30 days ago', subs: 3, desc: '', fresh: 0 };
     var x = PCOLLS.filter(function (c) { return c[0] === S.collName; })[0] || PCOLLS[2];
     return { title: x[0], by: x[1], total: x[2], visible: x[3], updated: v === 'following' ? 'today' : ago(x[6]), subs: x[5], fresh: v === 'following' ? 3 : 0,
@@ -1939,10 +1959,10 @@ a{color:inherit}
     var who = c.owner ? '<span class="ch-by">' + pav(0, 24, true) + 'Lyra' + vsm() + '<span class="h">@lyra.art</span></span>'
       : (function () { var n = CNAMES[c.by] || [c.by, 1, false]; return '<a href="#" class="ch-by" ' + (c.by === 'haruki.px' ? 'data-go="visitor"' : 'data-toast="Opens ' + esc(c.by) + '’s profile"') + '>' + pav(n[1], 24) + esc(n[0]) + (n[2] ? vsm() : '') + '<span class="h">@' + esc(c.by) + '</span></a>'; })();
     var meta = '<p class="ch-meta"><span>' + count + ' · Updated ' + c.updated + ' · ' + plural(c.subs, 'subscriber', 'subscribers') + '</span>' + (c.priv ? '<span class="ch-priv">' + ic('lock-simple') + 'Private</span>' : '') + '</p>';
-    var desc = c.desc ? '<p class="ch-desc">' + tail(c.desc) + '</p>' : c.owner ? '<button type="button" class="ch-add" data-toast="Opens Edit collection">+ Add a description</button>' : '';
+    var desc = c.desc ? '<p class="ch-desc">' + tail(c.desc) + '</p>' : c.owner ? '<button type="button" class="ch-add" data-cedit="desc">+ Add a description</button>' : '';
     var link = '<button type="button" class="ib ol" data-toast="Link copied" aria-label="Copy link">' + ic('link-simple') + '</button>';
     var more = '<button type="button" class="ib ol" data-csheet="1" aria-haspopup="dialog" aria-label="More options">' + ic('dots-three') + '</button>';
-    var acts = c.owner ? '<button type="button" class="btn outlined s36" data-toast="Opens Edit collection">Edit</button>' + (c.priv ? '' : link)
+    var acts = c.owner ? '<button type="button" class="btn outlined s36" data-cedit="edit">Edit</button>'
       : (S.session === 'out' ? '<a href="#" class="btn accent s36" data-go="login">Subscribe</a>'
         : '<button type="button" class="btn ' + (subd ? 'outlined' : 'accent') + ' s36" data-sub="' + esc(c.title) + '" aria-label="' + (subd ? 'Subscribed to ' : 'Subscribe to ') + esc(c.title) + '">' + (subd ? 'Subscribed' : 'Subscribe') + '</button>') + link + more;
     var head = '<div class="ch"><h1 class="ph-title">' + esc(c.title) + '</h1>' + who + meta + desc + '<div class="ch-act">' + acts + '</div></div>';
@@ -1963,7 +1983,73 @@ a{color:inherit}
         row(ic('pencil-simple'), 'Add a note', 'data-toast="Opens Add a note"', ' ') + row(ic('gavel'), 'Open in the moderation panel', 'data-toast="Opens the moderation panel"', ' ') + '</ul>' : '') +
       '<div class="sheet-pad"></div>').replace('__TOOLS__', '').replace('id="psheet"', 'id="csheet"');
   }
-  function openColl(name, from, cv) { S.collName = name; S.collFrom = from; S.cv = cv; S.csheet = false; S.screen = 'coll'; S.sheet = false; S.filters = false; S.sortOpen = false; render(false); var m = document.getElementById('main'); if (m) m.focus({ preventScroll: true }); }
+  // Edit collection (13.4): name, description, cover, visibility; Change cover opens in the same sheet, so there is no sheet over a sheet
+  function ceCover(pick, n) {
+    var big = pick === 'auto' ? 0 : pick, rest = [], k;
+    for (k = 0; k < n && rest.length < 2; k++) if (k !== big) rest.push(k);
+    return [big].concat(rest).concat([-1, -1]).slice(0, 3).map(function (i) { return i < 0 || i >= n ? '<i class="empty"></i>' : '<i style="' + art(i) + '"></i>'; }).join('');
+  }
+  function cesheet() {
+    if (!S.cedit || S.screen !== 'coll') return '';
+    var c = collData(), n = c.total, cur = S.ccover[c.title] || 'auto', body, title;
+    if (S.cedit === 'delete') {
+      return '<div class="scrim" data-close="1"></div><div class="sheet in" id="cesheet" role="alertdialog" aria-modal="true" aria-labelledby="ce-t"><div class="grab" aria-hidden="true"></div><div class="usbody">' +
+        '<h2 id="ce-t">Delete “' + esc(c.title) + '”?</h2><p>' + (c.subs ? 'The collection is removed for you and for its ' + plural(c.subs, 'subscriber', 'subscribers') + '. The posts in it stay on Wondx.' : 'The collection is removed for you. The posts in it stay on Wondx.') + '</p>' +
+        '<div class="us-act"><button type="button" class="btn outlined s36" data-ce="back">Cancel</button><button type="button" class="btn danger s36" data-ce="deleted">Delete collection</button></div></div></div>';
+    }
+    if (S.cedit === 'cover') {
+      title = 'Change cover';
+      var tiles = '<button type="button" class="ce-t auto" data-ce-pick="auto" aria-pressed="' + (S.cdraft === 'auto') + '">Automatic' + (S.cdraft === 'auto' ? '<span class="ce-ck">' + ic('check') + '</span>' : '') + '</button>';
+      for (var k = 0; k < Math.min(n, 11); k++) tiles += '<button type="button" class="ce-t" style="' + art(k) + '" data-ce-pick="' + k + '" aria-pressed="' + (S.cdraft === k) + '" aria-label="' + esc(TITLES[k % TITLES.length]) + '">' + (S.cdraft === k ? '<span class="ce-ck">' + ic('check') + '</span>' : '') + '</button>';
+      body = '<div class="ce-prev"><div class="cv" aria-hidden="true">' + ceCover(S.cdraft, n) + '</div></div><p class="fine">' + tail('The post you pick is the big image. The two next to it are the most recently added.') + '</p>' +
+        '<div class="ce-grid" role="group" aria-label="Posts in this collection">' + tiles + '</div>' +
+        '<div class="us-act"><button type="button" class="btn primary s36" data-ce="done">Done</button><button type="button" class="btn outlined s36" data-ce="back">Cancel</button></div>';
+    } else {
+      title = 'Edit collection';
+      var lock = ceLocked(c);
+      body = '<div class="ce-f"><label class="ulab" for="cename">Name</label><input id="cename" class="uin" type="text" autocomplete="off" value="' + esc(S.cdName) + '"></div>' +
+        '<div class="ce-f"><label class="ulab" for="cedesc">Description</label><textarea id="cedesc" class="ta" placeholder="What ties these posts together?">' + esc(S.cdDesc) + '</textarea></div>' +
+        '<div class="ce-f"><span class="ulab">Cover</span><div class="ce-cur"><div class="cv" aria-hidden="true">' + ceCover(cur, n) + '</div><div class="ce-cur-t"><span class="fine">' +
+          (cur === 'auto' ? 'Automatic: the most recently added post.' : 'Picked by you: ' + esc(TITLES[cur % TITLES.length]) + '.') + '</span>' +
+          (n ? '<button type="button" class="btn outlined s36" data-ce="cover">Change cover</button>' : '') + '</div></div></div>' +
+        '<div class="ce-f"><span class="ulab" id="ce-vis">Visibility</span><div class="kseg" role="group" aria-labelledby="ce-vis">' +
+          '<button type="button" data-ce-vis="public" aria-pressed="' + !S.cdPriv + '"' + (lock ? ' aria-disabled="true"' : '') + '>Public</button><button type="button" data-ce-vis="private" aria-pressed="' + S.cdPriv + '">Private</button></div>' +
+          '<p class="fine">' + (lock ? tail('Change the name and description to make it public again.') : S.cdPriv ? 'Only you can see it.' : tail('Anyone can see it. It shows in Public Collections once it has a post.')) + '</p></div>' +
+        '<div class="us-act"><button type="button" class="btn primary s36" data-ce="save">Save</button><button type="button" class="btn outlined s36" data-close="1">Cancel</button></div>' +
+        '<div class="ce-del"><button type="button" class="btn tdanger" data-ce="delete">Delete collection</button></div>';
+    }
+    return '<div class="scrim" data-close="1"></div><div class="sheet in ce" id="cesheet" role="dialog" aria-modal="true" aria-labelledby="ce-t"><div class="grab" aria-hidden="true"></div>' +
+      '<div class="shd"><h2 id="ce-t">' + title + '</h2><button type="button" class="xb" ' + (S.cedit === 'cover' ? 'data-ce="back"' : 'data-close="1"') + ' aria-label="Close">' + ic('x') + '</button></div><div class="ce-body">' + body + '</div></div>';
+  }
+  function ceLocked(c) { return S.cmod && (S.cdName.trim() === c.title || S.cdDesc.trim() === c.desc); }
+  function ceLockUI() {
+    if (!S.cmod) return; var c = collData(), lock = ceLocked(c), pb = device.querySelector('[data-ce-vis="public"]'), h = device.querySelector('.ce-f .kseg + .fine');
+    if (!pb) return; if (lock) pb.setAttribute('aria-disabled', 'true'); else pb.removeAttribute('aria-disabled');
+    h.innerHTML = lock ? tail('Change the name and description to make it public again.') : S.cdPriv ? 'Only you can see it.' : tail('Anyone can see it. It shows in Public Collections once it has a post.');
+  }
+  function ceOpen(v) {
+    var c = collData();
+    if (v !== 'cover' && v !== 'delete') { S.cdName = c.title; S.cdDesc = c.desc; S.cdPriv = !!c.priv; }
+    if (v === 'cover') S.cdraft = S.ccover[c.title] === undefined ? 'auto' : S.ccover[c.title];
+    S.cedit = v === 'desc' ? 'edit' : v; render();
+    var f = v === 'desc' ? document.getElementById('cedesc') : v === 'cover' ? device.querySelector('.ce-t[aria-pressed="true"]') : v === 'delete' ? device.querySelector('#cesheet .btn.outlined') : device.querySelector('#cesheet .xb');
+    if (f) f.focus();
+  }
+  function ceAct(a) {
+    var c = collData(), f;
+    if (a === 'cover' || a === 'delete') { ceOpen(a); return; }
+    if (a === 'back') { var from = S.cedit; S.cedit = 'edit'; render(); f = device.querySelector(from === 'delete' ? '[data-ce="delete"]' : '[data-ce="cover"]'); }
+    if (a === 'done') { S.ccover[c.title] = S.cdraft; S.cedit = 'edit'; render(); f = device.querySelector('[data-ce="cover"]'); }
+    if (a === 'save') {
+      var m = MINE[c.title], goesPublic = c.priv && !S.cdPriv;
+      if (m) { m[1] = S.cdPriv; m[3] = S.cdDesc.trim(); }
+      S.cedit = null; render(); f = device.querySelector('[data-cedit="edit"]');
+      if (goesPublic) toast(c.title + ' is public. It shows in Public Collections.');
+    }
+    if (a === 'deleted') { S.cgone[c.title] = true; S.cedit = null; S.screen = 'library'; S.lib = 'saved'; render(false); f = document.getElementById('main'); toast('Deleted ' + c.title); }
+    if (f) f.focus({ preventScroll: true });
+  }
+  function openColl(name, from, cv) { S.collName = name; S.collFrom = from; S.cv = cv; S.csheet = false; S.cedit = null; S.cmod = false; S.screen = 'coll'; S.sheet = false; S.filters = false; S.sortOpen = false; render(false); var m = document.getElementById('main'); if (m) m.focus({ preventScroll: true }); }
   function pcSet(v) { S.pcf = v; S.pcon = v === 'wall' ? ['Wallpapers'] : v === 'nomatch' ? ['Photography'] : []; S.pccr = v === 'nomatch' ? 'oc' : 'everyone'; }
 
   // the Filters sheet leads with the category's own attribute (10.4)
@@ -2378,9 +2464,9 @@ a{color:inherit}
     document.documentElement.setAttribute('data-theme', S.theme);
     var sc = device.querySelector('.screen'), y = sc && keepScroll !== false ? sc.scrollTop : 0;
     device.innerHTML = '<div class="screen" id="screen">' + top() + '<main class="mmain' + (S.screen === 'you' || S.screen === 'visitor' ? ' pf' : '') + (S.screen === 'settings' || S.screen === 'about' ? ' list' : '') + (AUTH.indexOf(S.screen) >= 0 ? ' auth' : '') + '" id="main" tabindex="-1">' + page() + '</main>' + bar() + '</div>' +
-      sheet() + fsheet() + ssheet() + psheet() + csheet() + fullView() + sortMenu() + usheet() + liveCard() + nsheet() + setupSheet() + '<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>';
+      sheet() + fsheet() + ssheet() + psheet() + csheet() + cesheet() + fullView() + sortMenu() + usheet() + liveCard() + nsheet() + setupSheet() + '<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>';
     var nsc = device.querySelector('.screen'); nsc.scrollTop = y;
-    nsc.setAttribute('inert', ''); if (!S.sheet && !S.csheet && !S.filters && !S.showcase && !S.psheet && !S.full && !S.usheet && !S.nsheet && S.setup === 'closed') nsc.removeAttribute('inert');
+    nsc.setAttribute('inert', ''); if (!S.sheet && !S.csheet && !S.cedit && !S.filters && !S.showcase && !S.psheet && !S.full && !S.usheet && !S.nsheet && S.setup === 'closed') nsc.removeAttribute('inert');
     swipe();
     if (S.screen === 'search') { var sq = document.getElementById('sq'); if (sq && document.activeElement !== sq) { sq.focus({ preventScroll: true }); sq.setSelectionRange(sq.value.length, sq.value.length); } }
     var hs = device.querySelector('.hm-scroll'); if (hs) hs.scrollLeft = hs.scrollWidth;
@@ -2409,8 +2495,8 @@ a{color:inherit}
   }
   function openSheet() { S.sheet = true; render(); device.querySelector('#sheet .xb').focus(); }
   function closeSheet() {
-    var sel = S.csheet ? '[data-csheet]' : S.setup !== 'closed' ? '.addc' : S.nsheet ? '[data-nsheet]' : S.usheet ? (S.usheet === 'leave' ? '[data-uleave]' : '[data-utype="' + S.uswitchTo + '"]') : S.full ? '#artBtn' : S.psheet ? '[data-psheet="' + (S.psheet === 'about' ? 'menu' : S.psheet) + '"]' : S.filters ? '#filtersBtn' : S.showcase ? '#showBtn' : '#moreBtn';
-    S.sheet = false; S.csheet = false; S.filters = false; S.showcase = false; S.psheet = null; S.full = false; S.usheet = null; S.nsheet = null; S.setup = 'closed'; render();
+    var sel = S.cedit ? '[data-cedit="edit"]' : S.csheet ? '[data-csheet]' : S.setup !== 'closed' ? '.addc' : S.nsheet ? '[data-nsheet]' : S.usheet ? (S.usheet === 'leave' ? '[data-uleave]' : '[data-utype="' + S.uswitchTo + '"]') : S.full ? '#artBtn' : S.psheet ? '[data-psheet="' + (S.psheet === 'about' ? 'menu' : S.psheet) + '"]' : S.filters ? '#filtersBtn' : S.showcase ? '#showBtn' : '#moreBtn';
+    S.sheet = false; S.csheet = false; S.cedit = null; S.filters = false; S.showcase = false; S.psheet = null; S.full = false; S.usheet = null; S.nsheet = null; S.setup = 'closed'; render();
     var m = device.querySelector(sel); if (m) m.focus({ preventScroll: true });
   }
   function openPostSheet(v, focusId) { S.psheet = v; S.full = false; render(); var f = focusId && document.getElementById(focusId); (f || device.querySelector('#psheet .xb:last-of-type') || device.querySelector('#psheet .xb')).focus(); }
@@ -2442,6 +2528,7 @@ a{color:inherit}
     ['live', 'After publishing', [['off', 'Nothing'], ['on', 'Your post is live.']]],
     ['rq', 'Search for', [['dark wallpaper', 'dark wallpaper'], ['haruki.px', 'An exact @'], ['wallpaepr', 'A typo'], ['xqzvbn', 'No results']]],
     ['cv', 'Collection', [['visitor', 'Blue posts'], ['following', 'From Following, 3 new'], ['owner', 'Yours, private'], ['empty', 'Yours, no posts yet'], ['gone', 'Nothing visible'], ['staff', 'Seen by staff']]],
+    ['cedit', 'Edit', [['none', 'Closed'], ['edit', 'Edit collection'], ['cover', 'Change cover'], ['delete', 'Delete'], ['mod', 'Made private by a moderator']]],
     ['csheet', '··· menu', [['closed', 'Closed'], ['open', 'Open']]],
     ['pcf', 'Collections filters', [['none', 'None'], ['wall', 'Contains Wallpapers'], ['nomatch', 'Nothing matches']]],
     ['csort', 'Collections sort', [['relevant', 'Relevant'], ['updated', 'Recently updated'], ['popular', 'Popular']]],
@@ -2467,7 +2554,7 @@ a{color:inherit}
     ['sheet', 'More sheet', [['closed', 'Closed'], ['open', 'Open']]],
     ['dot', 'Notifications', [['on', 'New'], ['off', 'None']]]
   ];
-  function val(k) { if (k === 'steamConn') return S.steamConn ? 'yes' : 'no'; if (k === 'live') return S.published ? 'on' : 'off'; return k === 'psheet' ? (S.full ? 'none' : S.psheet || 'none') : k === 'showcase' ? (S.showcase ? 'open' : 'closed') : k === 'sheet' ? (S.sheet ? 'open' : 'closed') : k === 'csheet' ? (S.csheet ? 'open' : 'closed') : k === 'filters' ? (S.filters ? 'open' : 'closed') : k === 'dot' ? (S.dot ? 'on' : 'off') : S[k]; }
+  function val(k) { if (k === 'steamConn') return S.steamConn ? 'yes' : 'no'; if (k === 'live') return S.published ? 'on' : 'off'; return k === 'psheet' ? (S.full ? 'none' : S.psheet || 'none') : k === 'showcase' ? (S.showcase ? 'open' : 'closed') : k === 'sheet' ? (S.sheet ? 'open' : 'closed') : k === 'csheet' ? (S.csheet ? 'open' : 'closed') : k === 'cedit' ? (S.cmod && S.cedit === 'edit' ? 'mod' : S.cedit || 'none') : k === 'filters' ? (S.filters ? 'open' : 'closed') : k === 'dot' ? (S.dot ? 'on' : 'off') : S[k]; }
   function shown(gr) {
     var k = gr[0], pf = S.screen === 'you' || S.screen === 'visitor';
     if (S.session === 'out' && (k === 'dot' || k === 'plan')) return false;
@@ -2491,6 +2578,7 @@ a{color:inherit}
     if (k === 'cat' && S.screen !== 'category') return false;
     if ((k === 'pcf' || k === 'csort') && S.screen !== 'pcolls') return false;
     if (k === 'cv' && S.screen !== 'coll') return false;
+    if (k === 'cedit' && (S.screen !== 'coll' || ['owner', 'empty'].indexOf(S.cv) < 0)) return false;
     if (k === 'csheet' && (S.screen !== 'coll' || ['owner', 'empty'].indexOf(S.cv) >= 0)) return false;
     if (k === 'cv' && S.session === 'out') return false;
     if ((k === 'lbp' || k === 'board') && S.screen !== 'leaderboard') return false;
@@ -2536,7 +2624,8 @@ a{color:inherit}
     else if (k === 'cat') { S.cat = v; S.ctype = 'all'; S.ctag = null; }
     else if (k === 'pcf') pcSet(v);
     else if (k === 'csheet') S.csheet = v === 'open';
-    else if (k === 'cv') { S.cv = v; S.csheet = false; S.collName = v === 'owner' ? 'Wondx Wallpapers' : v === 'empty' ? 'Night drives' : v === 'gone' ? 'My Steam Profiles' : 'Blue posts'; S.collFrom = v === 'following' ? 'following' : v === 'owner' || v === 'empty' ? 'library' : 'pcolls'; if (v === 'following') S.subs['Blue posts'] = true; }
+    else if (k === 'cedit') { S.cmod = v === 'mod'; if (v === 'none') S.cedit = null; else { var c0 = collData(); S.cdName = c0.title; S.cdDesc = c0.desc; S.cdPriv = v === 'mod' || !!c0.priv; S.cdraft = S.ccover[c0.title] === undefined ? 'auto' : S.ccover[c0.title]; S.cedit = v === 'mod' ? 'edit' : v; } }
+    else if (k === 'cv') { S.cv = v; S.csheet = false; S.cedit = null; S.cmod = false; S.collName = v === 'owner' ? 'Wondx Wallpapers' : v === 'empty' ? 'Night drives' : v === 'gone' ? 'My Steam Profiles' : 'Blue posts'; S.collFrom = v === 'following' ? 'following' : v === 'owner' || v === 'empty' ? 'library' : 'pcolls'; if (v === 'following') S.subs['Blue posts'] = true; }
     else if (k === 'psheet') { S.psheet = v === 'none' || (v === 'recreate' && S.ptype !== 'steam') ? null : v; S.full = false; }
     else if (k === 'ptype') { S.ptype = v; S.pslide = POSTS[v].start || 0; S.psheet = null; }
     else S[k] = v;
@@ -2601,6 +2690,10 @@ a{color:inherit}
     if ((x0 = e.target.closest('[data-undo-sub]'))) { subToggle(x0.dataset.undoSub); return; }
     if ((x0 = e.target.closest('[data-coll]'))) { e.preventDefault(); var cn0 = x0.dataset.coll, fr = S.screen;
       openColl(cn0, fr, fr === 'library' ? 'owner' : fr === 'following' ? (S.subs[cn0] = true, 'following') : 'visitor'); return; }
+    if ((x0 = e.target.closest('[data-cedit]'))) { ceOpen(x0.dataset.cedit); return; }
+    if ((x0 = e.target.closest('[data-ce]'))) { ceAct(x0.dataset.ce); return; }
+    if ((x0 = e.target.closest('[data-ce-pick]'))) { var pv = x0.dataset.cePick; S.cdraft = pv === 'auto' ? 'auto' : +pv; var gy = device.querySelector('.ce-body').scrollTop; render(); device.querySelector('.ce-body').scrollTop = gy; device.querySelector('[data-ce-pick="' + pv + '"]').focus({ preventScroll: true }); return; }
+    if ((x0 = e.target.closest('[data-ce-vis]'))) { if (x0.getAttribute('aria-disabled') === 'true') return; S.cdPriv = x0.dataset.ceVis === 'private'; render(); device.querySelector('[data-ce-vis="' + x0.dataset.ceVis + '"]').focus(); return; }
     if (e.target.closest('[data-csheet]')) { S.csheet = true; render(); device.querySelector('#csheet .xb').focus(); return; }
     if ((x0 = e.target.closest('[data-pc-con]'))) { var cc = x0.dataset.pcCon, ci = S.pcon.indexOf(cc); if (ci >= 0) S.pcon.splice(ci, 1); else S.pcon.push(cc); S.pcf = ''; render(); var cb = device.querySelector('[data-pc-con="' + cc + '"]'); if (cb) cb.focus(); return; }
     if ((x0 = e.target.closest('[data-pc-rm]'))) { var rm = x0.dataset.pcRm; if (rm === 'creators') S.pccr = 'everyone'; else S.pcon = S.pcon.filter(function (c) { return 'contains:' + c !== rm; }); S.pcf = ''; render(); pcFocus(); return; }
@@ -2647,6 +2740,8 @@ a{color:inherit}
   }
   document.addEventListener('input', function (e) {
     if (e.target.id === 'sq') { S.q = e.target.value; refreshSug(); }
+    if (e.target.id === 'cename') { S.cdName = e.target.value; ceLockUI(); }
+    if (e.target.id === 'cedesc') { S.cdDesc = e.target.value; ceLockUI(); }
     if (e.target.id === 'utitle') { S.utitle = e.target.value; var uc = document.getElementById('utc'); if (uc) uc.textContent = S.utitle.length + '/50'; var pv = device.querySelector('.pv-card .meta b'); if (pv) pv.textContent = S.utitle; }
     if (e.target.id === 'cinput') e.target.closest('.cfield').classList.toggle('has', e.target.value.length > 0);
     if (e.target.id === 'sugg') { var c = document.getElementById('suggCount'); if (c) c.textContent = e.target.value.length + '/1000'; }
@@ -2659,7 +2754,7 @@ a{color:inherit}
       var all = Array.prototype.slice.call(tab.parentNode.querySelectorAll('[role="tab"]')), i = all.indexOf(tab);
       var nx = all[(i + (e.key === 'ArrowRight' ? 1 : all.length - 1)) % all.length]; nx.click(); e.preventDefault(); return;
     }
-    if (!S.sheet && !S.csheet && !S.filters && !S.showcase && !S.psheet && !S.full && !S.usheet && !S.nsheet && S.setup === 'closed') return;
+    if (!S.sheet && !S.csheet && !S.cedit && !S.filters && !S.showcase && !S.psheet && !S.full && !S.usheet && !S.nsheet && S.setup === 'closed') return;
     if (e.key === 'Escape') { e.preventDefault(); closeSheet(); return; }
     if (e.key === 'Tab') {
       var id = S.setup !== 'closed' ? '#setupS' : S.nsheet ? '#nsheet' : S.usheet ? '#usheet' : S.full ? '#full' : S.psheet ? '#psheet' : S.filters ? '#fsheet' : S.showcase ? '#ssheet' : '#sheet';
